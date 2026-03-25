@@ -1,0 +1,38 @@
+#trash{
+    cursor: pointer;
+    width: 30px;
+    height: auto;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 100px;
+}
+
+h1 {
+    color: #fff;
+    font-size: 42px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 30px;
+    border-radius: 10px;
+    background-color: #2E2D4E;
+    max-width: 50%;
+    width: 400px;
+    margin-bottom: 20px;
+
+    & button {
+        border-radius: 30px;
+        background-color: #9B8AE1;
+        cursor: pointer;
+        height: 40px;
+        border: none;
+        font-weight: bold;
+    }
+}
