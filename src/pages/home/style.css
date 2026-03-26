@@ -1,38 +1,88 @@
-#trash{
-    cursor: pointer;
-    width: 30px;
-    height: auto;
+#trash {
+  cursor: pointer;
+  width: 30px;
+  height: auto;
 }
 
 .container {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    padding-top: 100px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding-top: 100px;
 }
 
 h1 {
-    color: #fff;
-    font-size: 42px;
+  color: #fff;
+  font-size: 42px;
 }
 
 form {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    padding: 30px;
-    border-radius: 10px;
-    background-color: #2E2D4E;
-    max-width: 50%;
-    width: 400px;
-    margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 30px;
+  border-radius: 10px;
+  background-color: #2e2d4e;
+  max-width: 50%;
+  width: 400px;
+  margin-bottom: 20px;
 
-    & button {
-        border-radius: 30px;
-        background-color: #9B8AE1;
-        cursor: pointer;
-        height: 40px;
-        border: none;
+  & button {
+    border-radius: 30px;
+    background-color: #9b8ae1;
+    cursor: pointer;
+    height: 40px;
+    border: none;
+    font-weight: bold;
+    color: #fff;
+    font-size: 14px;
+    transition: all 0.3s;
+  }
+
+  & button:hover {
+    opacity: 0.8;
+    transform: scale(1.1);
+  }
+
+  & input {
+    border: 1px solid #48456c;
+    border-radius: 30px;
+    height: 40px;
+    background-color: #363653;
+    color: #fff;
+    font-size: 16px;
+    outline: none;
+    text-align: center;
+  }
+}
+
+.card {
+    display: flex;
+    justify-content: space-between;
+    background-color: #9b8ae1;
+    margin: 10px;
+    padding: 10px;
+    width: 400px;
+    border-radius: 10px;
+
+    & p {
+        color: #fff;
         font-weight: bold;
+
+            & span {
+            font-weight: normal;
+        }
+    }
+
+    & button{
+        background-color: transparent;
+        border: none;
+        transition: all 0.3s;
+    }
+
+    & button:hover{
+        background-color: transparent;
+        border: none;
+        transform: scale(1.2);
     }
 }
