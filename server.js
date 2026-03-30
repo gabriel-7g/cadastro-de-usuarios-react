@@ -2,13 +2,13 @@ const express = require('express');
 const app = express();
 const PORT = 3000;
 
-const cors = require('cors'); // Importe o cors
-app.use(cors()); // Ative o cors antes das rotas
+const cors = require('cors'); 
+app.use(cors());
 
-// Middleware para permitir o uso de JSON
+
 app.use(express.json());
 
-// Lista de 10 usuários simulando um banco de dados
+
 const usuarios = [
     { id: 1, nome: "Ana Silva", email: "ana.silva@email.com", idade: 25 },
     { id: 2, nome: "Bruno Costa", email: "bruno.c@email.com", idade: 30 },
@@ -22,12 +22,12 @@ const usuarios = [
     { id: 10, nome: "João Pereira", email: "joao.p@email.com", idade: 31 }
 ];
 
-// Rota principal para listar todos os usuários
+
 app.get('/usuarios', (req, res) => {
     res.status(200).json(usuarios);
 });
 
-// Rota para buscar um usuário específico pelo ID
+
 app.get('/usuarios/:id', (req, res) => {
     const id = parseInt(req.params.id);
     const usuario = usuarios.find(u => u.id === id);
@@ -37,6 +37,21 @@ app.get('/usuarios/:id', (req, res) => {
     } else {
         res.status(404).json({ mensagem: "Usuário não encontrado" });
     }
+});
+
+app.post('/usuarios', (req, res) => {
+    const { nome, email, idade } = req.body;
+    const novoId = usuarios.length > 0 ? usuarios[usuarios.length - 1].id + 1 : 1;
+
+    const novoUsuario = {
+        id: novoId,
+        nome,
+        email,
+        idade: parseInt(idade) 
+    };
+
+    usuarios.push(novoUsuario);
+    res.status(201).json(novoUsuario);
 });
 
 app.listen(PORT, () => {
