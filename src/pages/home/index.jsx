@@ -1,27 +1,18 @@
+import { useEffect } from 'react';
 import './style.css'
 import Trash from '../../assets/4437007.png';
+import api from '../../services/api'
 
 function Home() {
-  const users = [
-    {
-      id: '123',
-      name: 'rodolfo',
-      age: 33,
-      email: 'rod@email.com'
-    },
-    {
-      id: '321',
-      name: 'arnaldo',
-      age: 33,
-      email: 'arnaldo@email.com'
-    },
-    {
-      id: '3213',
-      name: 'Karol',
-      age: 26,
-      email: 'karol@email.com'
-    }
-  ]
+  let users = []
+
+  async function getUsers() {
+    users =  await api.get('/usuarios')
+  }
+
+  useEffect( () => {
+    getUsers
+  }, [])
 
   return (
     <>
@@ -50,4 +41,5 @@ function Home() {
     </>
   )
 }
+
 export default Home
