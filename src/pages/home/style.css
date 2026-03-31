@@ -87,3 +87,18 @@ form {
         transform: scale(1.2);
     }
 }
+
+.msg-sucesso, .msg-erro {
+  font-size: 14px;
+  margin-top: 10px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.msg-sucesso {
+  color: #28a745;
+}
+
+.msg-erro {
+  color: #dc3545;
+}

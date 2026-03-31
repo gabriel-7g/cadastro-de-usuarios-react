@@ -1,13 +1,11 @@
-const express = require('express');
+import express from 'express';
+import cors from 'cors';
+
 const app = express();
 const PORT = 3000;
 
-const cors = require('cors'); 
 app.use(cors());
-
-
 app.use(express.json());
-
 
 const usuarios = [
     { id: 1, nome: "Ana Silva", email: "ana.silva@email.com", idade: 25 },
@@ -41,8 +39,11 @@ app.get('/usuarios/:id', (req, res) => {
 
 app.post('/usuarios', (req, res) => {
     const { nome, email, idade } = req.body;
+    const usuarioExiste = usuarios.find(u => u.email === email);
+    if (usuarioExiste) {
+        return res.status(400).json({ mensagem: "Este e-mail já está cadastrado!" });
+    }
     const novoId = usuarios.length > 0 ? usuarios[usuarios.length - 1].id + 1 : 1;
-
     const novoUsuario = {
         id: novoId,
         nome,
@@ -54,7 +55,17 @@ app.post('/usuarios', (req, res) => {
     res.status(201).json(novoUsuario);
 });
 
+app.delete('/usuarios/:id', async (req, res) => {
+    const id = parseInt(req.params.id);
+    const index = usuarios.findIndex(u => u.id === id);
+    if (index !== -1) {
+        usuarios.splice(index, 1); 
+        res.status(200).json({ mensagem: "Usuário deletado com sucesso!" });
+    } else {
+        res.status(404).json({ mensagem: "Usuário não encontrado" });
+    }
+})
+
 app.listen(PORT, () => {
     console.log(`Servidor rodando em http://localhost:${PORT}`);
-    console.log(`Acesse http://localhost:${PORT}/usuarios para ver a lista`);
 });
