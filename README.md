@@ -1,12 +1,12 @@
-Necessário instalado no seu computador para rodar:
+## Necessário instalado no seu computador para rodar:
 - Node.JS
 
-Comnados para isntalar no terminal:
+## Comnados para instalar no terminal:
 - npm install 
 - npm install axios
 - npm install cors
 
-Comandos para Funcionar o API e ligar ao banco de dados
+## Comandos para Funcionar o API e ligar ao banco de dados
 -cd API (Estando na pasta de cadastro de usuários)
 - npm isntall cors
 - npm init -y
