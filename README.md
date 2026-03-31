@@ -8,7 +8,7 @@
 
 ## Comandos para Funcionar o API e ligar ao banco de dados
 - cd API (Estando na pasta de cadastro de usuários)
-- npm isntall cors
+- npm install cors
 - npm init -y
 - npm install express cors
 - node server.js(Para que a API comece a rodar)
