@@ -1,7 +1,7 @@
 ## Necessário instalado no seu computador para rodar:
 - Node.JS
 
-## Comnados para instalar no terminal:
+## Comandos para instalar no terminal:
 - npm install 
 - npm install axios
 - npm install cors
